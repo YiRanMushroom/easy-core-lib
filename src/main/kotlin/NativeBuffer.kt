@@ -10,7 +10,11 @@ class NativeBuffer {
         s_Cleaner.register(this, NativeReleaser(m_NativeBufferPtr))
     }
 
-    var m_NativeBufferPtr: Long = 0
+    private var m_NativeBufferPtr: Long = 0
+
+    fun GetNativeAddress(): Long {
+        return m_NativeBufferPtr
+    }
 
     companion object {
         val s_Cleaner: Cleaner = Cleaner.create()
